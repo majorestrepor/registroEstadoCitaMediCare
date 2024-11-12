@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "/tipo-estado-cita")
+@CrossOrigin(origins = "*")
 public class TipoEstadoCitaController {
 
     private final ServicioTipoEstadoCita servicioTipoEstadoCita;

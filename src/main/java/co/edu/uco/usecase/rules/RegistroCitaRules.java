@@ -11,7 +11,7 @@ public class RegistroCitaRules {
         CitaFieldValidator.validateEstado(nuevoEstado);
 
         // Actualización del estado en el DTO
-        citaDTO.setEstadoNombre(nuevoEstado);
+        citaDTO.setEstadoActual(nuevoEstado);
 
         // Lógica adicional para registrar la actualización en la base de datos puede ir aquí.
         // Por ejemplo, podrías llamar a un DAO o servicio que guarde el cambio en la base de datos.

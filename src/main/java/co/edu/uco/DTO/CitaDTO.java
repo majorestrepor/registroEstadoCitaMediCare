@@ -4,21 +4,21 @@ import java.time.LocalDateTime;
 
 public class CitaDTO {
     private String id;
-    private LocalDateTime fechaCita;
+    private LocalDateTime fecha;
     private String pacienteId;         // Agrega el campo pacienteId
-    private String nombrePaciente;
+    private String paciente;
     private String estadoId;
-    private String estadoNombre;
-    private String medicoNombre;
+    private String estadoActual;
+    private String doctor;
 
     public CitaDTO(String id, LocalDateTime fechaCita, String pacienteId, String nombrePaciente, String estadoId, String estadoNombre, String medicoNombre) {
         setId(id);
-        setFechaCita(fechaCita);
+        setFecha(fechaCita);
         setPacienteId(pacienteId);      // Asigna pacienteId en el constructor
-        setNombrePaciente(nombrePaciente);
+        setPaciente(nombrePaciente);
         setEstadoId(estadoId);
-        setEstadoNombre(estadoNombre);
-        setMedicoNombre(medicoNombre);
+        setEstadoActual(estadoNombre);
+        setDoctor(medicoNombre);
     }
 
     public String getId() {
@@ -29,12 +29,12 @@ public class CitaDTO {
         this.id = id;
     }
 
-    public LocalDateTime getFechaCita() {
-        return fechaCita;
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
-    private void setFechaCita(LocalDateTime fechaCita) {
-        this.fechaCita = fechaCita;
+    private void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 
     public String getPacienteId() {      // Agrega el getter para pacienteId
@@ -45,12 +45,12 @@ public class CitaDTO {
         this.pacienteId = pacienteId;
     }
 
-    public String getNombrePaciente() {
-        return nombrePaciente;
+    public String getPaciente() {
+        return paciente;
     }
 
-    private void setNombrePaciente(String nombrePaciente) {
-        this.nombrePaciente = nombrePaciente;
+    private void setPaciente(String paciente) {
+        this.paciente = paciente;
     }
 
     public String getEstadoId() {
@@ -61,19 +61,19 @@ public class CitaDTO {
         this.estadoId = estadoId;
     }
 
-    public String getEstadoNombre() {
-        return estadoNombre;
+    public String getEstadoActual() {
+        return estadoActual;
     }
 
-    public void setEstadoNombre(String estadoNombre) {
-        this.estadoNombre = estadoNombre;
+    public void setEstadoActual(String estadoActual) {
+        this.estadoActual = estadoActual;
     }
 
-    public String getMedicoNombre() {
-        return medicoNombre;
+    public String getDoctor() {
+        return doctor;
     }
 
-    private void setMedicoNombre(String medicoNombre) {
-        this.medicoNombre = medicoNombre;
+    private void setDoctor(String doctor) {
+        this.doctor = doctor;
     }
 }

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 @RestController
 @RequestMapping(value = "/registro-estado-cita")
+@CrossOrigin(origins = "*")
 public class RegistroEstadoCitaController {
 
     private final ServicioRegistroEstadoCita servicioRegistroEstadoCita;

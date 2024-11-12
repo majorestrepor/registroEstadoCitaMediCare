@@ -2,12 +2,12 @@ package co.edu.uco.DTO;
 
 public class RegistroEstadoCitaDTO {
     String idCita;
-    String idEstado;
+    String idNuevoEstado;
 
     public RegistroEstadoCitaDTO() {}
     public RegistroEstadoCitaDTO(String idCita, String idEstado) {
         this.idCita = idCita;
-        this.idEstado = idEstado;
+        this.idNuevoEstado = idEstado;
     }
 
     public String getIdCita() {
@@ -18,12 +18,12 @@ public class RegistroEstadoCitaDTO {
         this.idCita = idCita;
     }
 
-    public String getIdEstado() {
-        return idEstado;
+    public String getIdNuevoEstado() {
+        return idNuevoEstado;
     }
 
-    public void setIdEstado(String idEstado) {
-        this.idEstado = idEstado;
+    public void setIdNuevoEstado(String idNuevoEstado) {
+        this.idNuevoEstado = idNuevoEstado;
     }
 
     public void setEstado(String programada) {

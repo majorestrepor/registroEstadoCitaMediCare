@@ -30,13 +30,13 @@ public class CitaMapper {
         }
         return new CitaEntity(
                 UUID.fromString(dto.getId()),
-                dto.getFechaCita(),
+                dto.getFecha(),
                 UUID.fromString(dto.getPacienteId()),
-                dto.getNombrePaciente(),
+                dto.getPaciente(),
                 UUID.fromString(dto.getEstadoId()),
-                dto.getEstadoNombre(),
-                dto.getFechaCita(),         // Asegúrate de pasar la fecha del estado aquí
-                dto.getMedicoNombre()
+                dto.getEstadoActual(),
+                dto.getFecha(),         // Asegúrate de pasar la fecha del estado aquí
+                dto.getDoctor()
         );
     }
 

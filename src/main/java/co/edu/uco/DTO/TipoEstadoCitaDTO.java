@@ -2,19 +2,19 @@ package co.edu.uco.DTO;
 
 public class TipoEstadoCitaDTO {
     private String id;
-    private String nombre;
+    private String descripcion;
 
     public TipoEstadoCitaDTO(String id, String nombre) {
         setId(id);
-        setNombre(nombre);
+        setDescripcion(nombre);
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    private void setNombre(String nombre) {
-        this.nombre = nombre;
+    private void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getId() {

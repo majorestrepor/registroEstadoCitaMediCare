@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "/cita")
+@CrossOrigin(origins = "*")
 public class CitaController {
 
     private final ServicioCita servicioCita;
