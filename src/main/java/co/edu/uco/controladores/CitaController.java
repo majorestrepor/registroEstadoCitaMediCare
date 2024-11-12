@@ -27,6 +27,7 @@ public class CitaController {
             ArrayList<CitaDTO> citas = servicioCita.obtenerCitas();
             return ResponseEntity.ok(citas);
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ArrayList<>());
         }

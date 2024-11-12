@@ -3,6 +3,7 @@ package co.edu.uco.utilidades.mappers;
 import co.edu.uco.DAO.CitaEntity;
 import co.edu.uco.DTO.CitaDTO;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class CitaMapper {
 
@@ -12,11 +13,11 @@ public class CitaMapper {
             return null;
         }
         return new CitaDTO(
-                entity.getId(),
+                entity.getId().toString(),
                 entity.getFechaCita(),
-                entity.getPacienteId(),         // Asegúrate de pasar pacienteId
+                entity.getPacienteId().toString(),         // Asegúrate de pasar pacienteId
                 entity.getNombrePaciente(),
-                entity.getEstadoId(),
+                entity.getEstadoId().toString(),
                 entity.getEstadoNombre(),
                 entity.getMedicoNombre()
         );
@@ -28,11 +29,11 @@ public class CitaMapper {
             return null;
         }
         return new CitaEntity(
-                dto.getId(),
+                UUID.fromString(dto.getId()),
                 dto.getFechaCita(),
-                dto.getPacienteId(),
+                UUID.fromString(dto.getPacienteId()),
                 dto.getNombrePaciente(),
-                dto.getEstadoId(),
+                UUID.fromString(dto.getEstadoId()),
                 dto.getEstadoNombre(),
                 dto.getFechaCita(),         // Asegúrate de pasar la fecha del estado aquí
                 dto.getMedicoNombre()

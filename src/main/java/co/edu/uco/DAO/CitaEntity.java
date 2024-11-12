@@ -1,18 +1,19 @@
 package co.edu.uco.DAO;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class CitaEntity {
-    private String id;
+    private UUID id;
     private LocalDateTime fechaCita;
-    private String pacienteId;
+    private UUID pacienteId;
     private String nombrePaciente;
-    private String estadoId;
+    private UUID estadoId;
     private String estadoNombre;
     private LocalDateTime fechaEstado;
     private String medicoNombre;
 
-    public CitaEntity(String id, LocalDateTime fechaCita, String pacienteId, String nombrePaciente, String estadoId, String estadoNombre, LocalDateTime fechaEstado, String medicoNombre) {
+    public CitaEntity(UUID id, LocalDateTime fechaCita, UUID pacienteId, String nombrePaciente, UUID estadoId, String estadoNombre, LocalDateTime fechaEstado, String medicoNombre) {
         setId(id);
         setFechaCita(fechaCita);
         setPacienteId(pacienteId);
@@ -23,11 +24,11 @@ public class CitaEntity {
         setMedicoNombre(medicoNombre);
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    private void setId(String id) {
+    private void setId(UUID id) {
         this.id = id;
     }
 
@@ -39,11 +40,11 @@ public class CitaEntity {
         this.fechaCita = fechaCita;
     }
 
-    public String getPacienteId() {
+    public UUID getPacienteId() {
         return pacienteId;
     }
 
-    private void setPacienteId(String pacienteId) {
+    private void setPacienteId(UUID pacienteId) {
         this.pacienteId = pacienteId;
     }
 
@@ -55,11 +56,11 @@ public class CitaEntity {
         this.nombrePaciente = nombrePaciente;
     }
 
-    public String getEstadoId() {
+    public UUID getEstadoId() {
         return estadoId;
     }
 
-    private void setEstadoId(String estadoId) {
+    private void setEstadoId(UUID estadoId) {
         this.estadoId = estadoId;
     }
 
