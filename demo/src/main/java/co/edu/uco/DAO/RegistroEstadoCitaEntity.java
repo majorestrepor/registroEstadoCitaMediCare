@@ -2,41 +2,42 @@ package co.edu.uco.DAO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class RegistroEstadoCitaEntity {
-    private String idCita;
-    private String idEstado;
-    private String Id;
+    private UUID idCita;
+    private UUID idEstado;
+    private UUID Id;
     private LocalDateTime fechaRegistro;
 
-    public RegistroEstadoCitaEntity(String idEstado, String idCita, String id, LocalDateTime fechaRegistro) {
+    public RegistroEstadoCitaEntity(UUID idEstado, UUID idCita, UUID id, LocalDateTime fechaRegistro) {
         setIdEstado(idEstado);
         setIdCita(idCita);
         setId(id);
         setFechaRegistro(fechaRegistro);
     }
 
-    public String getIdCita() {
+    public UUID getIdCita() {
         return idCita;
     }
 
-    private void setIdCita(String idCita) {
+    private void setIdCita(UUID idCita) {
         this.idCita = idCita;
     }
 
-    public String getIdEstado() {
+    public UUID getIdEstado() {
         return idEstado;
     }
 
-    private void setIdEstado(String idEstado) {
+    private void setIdEstado(UUID idEstado) {
         this.idEstado = idEstado;
     }
 
-    public String getId() {
+    public UUID getId() {
         return Id;
     }
 
-    private void setId(String id) {
+    private void setId(UUID id) {
         Id = id;
     }
 
