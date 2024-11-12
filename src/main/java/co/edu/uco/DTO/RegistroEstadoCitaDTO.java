@@ -3,11 +3,12 @@ package co.edu.uco.DTO;
 public class RegistroEstadoCitaDTO {
     String idCita;
     String idNuevoEstado;
+    String idAnteriorEstado;
 
-    public RegistroEstadoCitaDTO() {}
-    public RegistroEstadoCitaDTO(String idCita, String idEstado) {
+    public RegistroEstadoCitaDTO(String idCita, String idEstado, String idAnteriorEstado) {
         this.idCita = idCita;
         this.idNuevoEstado = idEstado;
+        this.idAnteriorEstado = idAnteriorEstado;
     }
 
     public String getIdCita() {
@@ -27,5 +28,13 @@ public class RegistroEstadoCitaDTO {
     }
 
     public void setEstado(String programada) {
+    }
+
+    public String getIdAnteriorEstado() {
+        return idAnteriorEstado;
+    }
+
+    public void setIdAnteriorEstado(String idAnteriorEstado) {
+        this.idAnteriorEstado = idAnteriorEstado;
     }
 }

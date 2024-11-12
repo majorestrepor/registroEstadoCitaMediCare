@@ -2,6 +2,7 @@ package co.edu.uco.controladores;
 
 import co.edu.uco.DTO.CitaDTO;
 import co.edu.uco.servicios.ServicioCita;
+import co.edu.uco.usecase.exceptions.RegistroEstadoCitaException;
 import co.edu.uco.usecase.exceptions.InvalidFieldFormatException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class CitaController {
         this.servicioCita = servicioCita;
     }
 
-    // Endpoint para obtener todas las citas
+
     @GetMapping(value = "/obtener-citas")
     public ResponseEntity<ArrayList<CitaDTO>> obtenerCitas() {
         try {
@@ -34,13 +35,15 @@ public class CitaController {
         }
     }
 
-    // Endpoint para actualizar el estado de la cita
+
     @PutMapping(value = "/actualizar-estado")
     public ResponseEntity<String> actualizarEstadoCita(@RequestBody CitaDTO citaDTO,
                                                        @RequestParam String nuevoEstado) {
         try {
             servicioCita.actualizarEstadoCita(citaDTO, nuevoEstado);
             return ResponseEntity.ok("Estado de la cita actualizado correctamente");
+        } catch (RegistroEstadoCitaException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: " + e.getMessage());
         } catch (InvalidFieldFormatException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: " + e.getMessage());
         } catch (SQLException e) {

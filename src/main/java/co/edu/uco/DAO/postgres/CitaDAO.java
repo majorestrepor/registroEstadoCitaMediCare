@@ -16,7 +16,7 @@ public class CitaDAO {
         conn = DatabaseConnection.getConnection();
     }
 
-    // Método para obtener todas las citas
+
     public ArrayList<CitaEntity> obtenerTodasLasCitas() throws SQLException {
         ArrayList<CitaEntity> citas = new ArrayList<>();
         String sql = "SELECT c.id AS cita_id, c.fecha, p.id AS paciente_id, p.nombre AS nombre_paciente, medico AS medico_nombre, " +
@@ -49,7 +49,7 @@ public class CitaDAO {
         return citas;
     }
 
-    // Método para actualizar el estado de una cita en la base de datos
+
     public void actualizarEstado(CitaEntity citaEntity) throws SQLException {
         String sql = "UPDATE Cita SET estado_nombre = ? WHERE id = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {

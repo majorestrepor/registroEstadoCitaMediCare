@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@Service // Colocamos la anotación aquí, a nivel de clase
+@Service
 public class ServicioCita {
 
     private final CitaDAO citaDAO;
@@ -19,22 +19,21 @@ public class ServicioCita {
 
     public ServicioCita() {
         citaDAO = new CitaDAO();
-        registroCitaRules = new RegistroCitaRules(); // Inicia las reglas
+        registroCitaRules = new RegistroCitaRules();
     }
 
-    // Método para obtener todas las citas
+
     public ArrayList<CitaDTO> obtenerCitas() throws SQLException {
         ArrayList<CitaEntity> citasEntity = citaDAO.obtenerTodasLasCitas();
         return CitaMapper.ConvertListFromEntity(citasEntity);
     }
 
-    // Método para actualizar el estado de una cita
+
     public void actualizarEstadoCita(CitaDTO citaDTO, String nuevoEstado) throws InvalidFieldFormatException, SQLException {
-        // Aplicamos las reglas para actualizar el estado
         registroCitaRules.actualizarEstado(citaDTO, nuevoEstado);
 
-        // Convertimos el DTO a Entity y persistimos el cambio en la base de datos
-        CitaEntity citaEntity = CitaMapper.ConvertFromDTO(citaDTO); // Convertimos el DTO a entidad
-        citaDAO.actualizarEstado(citaEntity); // Llamamos a la función de DAO para persistir el cambio
+
+        CitaEntity citaEntity = CitaMapper.ConvertFromDTO(citaDTO);
+        citaDAO.actualizarEstado(citaEntity);
     }
 }

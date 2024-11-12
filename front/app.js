@@ -76,9 +76,10 @@ createApp({
     },
     async updateEstado() {
       if (!this.nuevoEstado) return;
-      if (!this.verificarMismoEstado(this.verificarEstadoActivo)) {
+      /*if (!this.verificarMismoEstado(this.verificarEstadoActivo)) {
         return; 
-      }
+      }*/
+      const anteriorEstadoid = this.estados.find(e => e.descripcion === this.selectedCita.estadoActual)?.id
 
       try {
         const response = await fetch("http://localhost:8080/registro-estado-cita/asignar-estado-cita", {
@@ -86,7 +87,8 @@ createApp({
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             idCita: this.selectedCita.id,
-            idNuevoEstado: this.nuevoEstado
+            idNuevoEstado: this.nuevoEstado,
+            idAnteriorEstado: anteriorEstadoid
           })
         });
 

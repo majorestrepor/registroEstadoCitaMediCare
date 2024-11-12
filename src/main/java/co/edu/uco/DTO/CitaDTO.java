@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class CitaDTO {
     private String id;
     private LocalDateTime fecha;
-    private String pacienteId;         // Agrega el campo pacienteId
+    private String pacienteId;
     private String paciente;
     private String estadoId;
     private String estadoActual;
@@ -14,7 +14,7 @@ public class CitaDTO {
     public CitaDTO(String id, LocalDateTime fechaCita, String pacienteId, String nombrePaciente, String estadoId, String estadoNombre, String medicoNombre) {
         setId(id);
         setFecha(fechaCita);
-        setPacienteId(pacienteId);      // Asigna pacienteId en el constructor
+        setPacienteId(pacienteId);
         setPaciente(nombrePaciente);
         setEstadoId(estadoId);
         setEstadoActual(estadoNombre);

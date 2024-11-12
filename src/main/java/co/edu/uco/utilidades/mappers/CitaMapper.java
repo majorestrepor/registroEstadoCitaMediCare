@@ -7,7 +7,6 @@ import java.util.UUID;
 
 public class CitaMapper {
 
-    // Convierte un CitaEntity a CitaDTO
     public static CitaDTO ConvertFromEntity(CitaEntity entity) {
         if (entity == null) {
             return null;
@@ -15,7 +14,7 @@ public class CitaMapper {
         return new CitaDTO(
                 entity.getId().toString(),
                 entity.getFechaCita(),
-                entity.getPacienteId().toString(),         // Asegúrate de pasar pacienteId
+                entity.getPacienteId().toString(),
                 entity.getNombrePaciente(),
                 entity.getEstadoId().toString(),
                 entity.getEstadoNombre(),
@@ -23,7 +22,6 @@ public class CitaMapper {
         );
     }
 
-    // Convierte un CitaDTO a CitaEntity
     public static CitaEntity ConvertFromDTO(CitaDTO dto) {
         if (dto == null) {
             return null;
@@ -35,12 +33,11 @@ public class CitaMapper {
                 dto.getPaciente(),
                 UUID.fromString(dto.getEstadoId()),
                 dto.getEstadoActual(),
-                dto.getFecha(),         // Asegúrate de pasar la fecha del estado aquí
+                dto.getFecha(),
                 dto.getDoctor()
         );
     }
 
-    // Convierte una lista de CitaEntity a una lista de CitaDTO
     public static ArrayList<CitaDTO> ConvertListFromEntity(ArrayList<CitaEntity> entities) {
         ArrayList<CitaDTO> dtos = new ArrayList<>();
         for (CitaEntity entity : entities) {

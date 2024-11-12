@@ -3,6 +3,7 @@ package co.edu.uco.servicios;
 import co.edu.uco.DAO.postgres.RegistroEstadoCitaDAO;
 import co.edu.uco.DAO.RegistroEstadoCitaEntity;
 import co.edu.uco.DTO.RegistroEstadoCitaDTO;
+import co.edu.uco.usecase.exceptions.RegistroEstadoCitaException;
 import co.edu.uco.usecase.responses.AsignarEstadoCitaRes;
 import co.edu.uco.utilidades.mappers.RegistroEstadoCitaMapper;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,9 @@ public class ServicioRegistroEstadoCita {
     }
     public ResponseEntity<AsignarEstadoCitaRes> asignarEstadoCita(RegistroEstadoCitaDTO registroEstadoCitaDTO) throws SQLException {
         try{
+            if (registroEstadoCitaDTO.getIdAnteriorEstado().equals(registroEstadoCitaDTO.getIdNuevoEstado())) {
+                throw new RegistroEstadoCitaException("No se puede cambiar una cita a su mismo estado");
+            }
             RegistroEstadoCitaEntity entity = RegistroEstadoCitaMapper.ConvertFromDTO(registroEstadoCitaDTO);
             registroEstadoCitaDAO.crear(entity);
             AsignarEstadoCitaRes res = new AsignarEstadoCitaRes("Registro creado correctamente");
