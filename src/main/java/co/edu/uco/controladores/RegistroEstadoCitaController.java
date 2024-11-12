@@ -1,6 +1,8 @@
 package co.edu.uco.controladores;
 import co.edu.uco.DTO.RegistroEstadoCitaDTO;
 import co.edu.uco.servicios.ServicioRegistroEstadoCita;
+import co.edu.uco.usecase.responses.AsignarEstadoCitaRes;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 
@@ -17,7 +19,7 @@ public class RegistroEstadoCitaController {
 
     @RequestMapping(value = "/asignar-estado-cita", method = RequestMethod.POST)
     @ResponseBody
-    public void asignarEstadoCita(@RequestBody RegistroEstadoCitaDTO registroEstadoCitaDTO) throws SQLException {
-        servicioRegistroEstadoCita.asignarEstadoCita(registroEstadoCitaDTO);
+    public ResponseEntity<AsignarEstadoCitaRes> asignarEstadoCita(@RequestBody RegistroEstadoCitaDTO registroEstadoCitaDTO) throws SQLException {
+        return servicioRegistroEstadoCita.asignarEstadoCita(registroEstadoCitaDTO);
     }
 }

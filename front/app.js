@@ -10,7 +10,8 @@ createApp({
       selectedCita: null,
       nuevoEstado: null,
       mensaje: "",
-      mostrarMensaje: false
+      mostrarMensaje: false,
+      verificarEstadoActivo: true // Controla si `verificarMismoEstado` está activo o no
     };
   },
   methods: {
@@ -58,13 +59,27 @@ createApp({
     closeModal() {
       this.selectedCita = null;
     },
+    verificarMismoEstado(activo) {
+      this.verificarEstadoActivo = activo;
+      if (this.verificarEstadoActivo && this.selectedCita && this.nuevoEstado) {
+        const estadoActualId = this.estados.find(e => e.descripcion === this.selectedCita.estadoActual)?.id;
+        if (estadoActualId === this.nuevoEstado) {
+          swal.fire({
+            icon: 'warning',
+            title: 'Advertencia',
+            text: 'No se puede actualizar al mismo estado'
+          });
+          return false;
+        }
+      }
+      return true;
+    },
     async updateEstado() {
       if (!this.nuevoEstado) return;
-      var registro = JSON.stringify({
-        idCita: this.selectedCita.id,
-        idNuevoEstado: this.nuevoEstado
-      });
-      console.log(registro);
+      if (!this.verificarMismoEstado(this.verificarEstadoActivo)) {
+        return; 
+      }
+
       try {
         const response = await fetch("http://localhost:8080/registro-estado-cita/asignar-estado-cita", {
           method: "POST",
@@ -76,7 +91,7 @@ createApp({
         });
 
         const data = await response.json();
-        this.mensaje = data.Mensaje;
+        this.mensaje = data.mensaje;
 
         if (response.ok) {
           await this.fetchCitas(); // Recargar citas si la actualización fue exitosa
